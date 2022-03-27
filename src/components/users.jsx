@@ -20,11 +20,10 @@ const Users = () => {
   }
 
 
-  // const getBadgeClasses = () => {
-  //   let classes = users.map((user) => user.qualities.map((i) => 'badge m-2 bg-' + i.color))
-  //   console.log(classes)
-  //   return classes
-  // }
+  const getBadgeClasses = (item) => {
+    let classes = `badge m-2 bg-${item.color}`
+    return classes
+  }
 
 
   return (
@@ -48,8 +47,8 @@ const Users = () => {
           {users.map((user) => <tr key={user._id}>
             <td>{user.name}</td>
             <td>{user.qualities.map((i) =>
-              <span key={i._id} className={'badge m-2 bg-' + i.color}>{i.name}</span>)}</td>
-            {/*<span key={i._id} className={getBadgeClasses()}>{i.name}</span>)}</td>*/}
+              // <span key={i._id} className={'badge m-2 bg-' + i.color}>{i.name}</span>)}</td>
+              <span key={i._id} className={getBadgeClasses(i)}>{i.name}</span>)}</td>
             <td>{user.profession.name}</td>
             <td>{user.completedMeetings}</td>
             <td>{user.rate}/5</td>
