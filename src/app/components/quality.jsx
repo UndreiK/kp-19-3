@@ -1,9 +1,10 @@
-import React from "react";
+import React from "react"
 
-const Quality = ({color, name, _id}) => {
+const Quality = ({ color, name, _id }) => {
   return (
-
-    <span key={_id} className={`badge m-2 bg-${color}`}>{name}</span>
+    <span key={_id} className={`badge m-2 bg-${color}`}>
+      {name}
+    </span>
   )
 }
 
