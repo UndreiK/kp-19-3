@@ -46,14 +46,14 @@ const User = ({
 
 User.propTypes = {
   name: PropTypes.string.isRequired,
-  _id: PropTypes.number.isRequired,
-  qualities: PropTypes.string.isRequired,
-  profession: PropTypes.string.isRequired,
-  completedMeetings: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
+  qualities: PropTypes.array.isRequired,
+  profession: PropTypes.object.isRequired,
+  completedMeetings: PropTypes.number.isRequired,
   rate: PropTypes.number.isRequired,
   onDelete: PropTypes.func.isRequired,
   onToggleBookmark: PropTypes.func.isRequired,
-  bookmark: PropTypes.func.isRequired
+  bookmark: PropTypes.bool.isRequired
 }
 
 export default User
