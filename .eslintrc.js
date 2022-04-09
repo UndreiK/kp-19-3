@@ -1,27 +1,27 @@
-const { before } = require("lodash")
+const { before } = require('lodash')
 
 module.exports = {
   env: {
     browser: true,
     es2021: true
   },
-  extends: ["plugin:react/recommended", "standard"],
+  extends: ['plugin:react/recommended', 'standard'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: "latest",
-    sourceType: "module"
+    ecmaVersion: 'latest',
+    sourceType: 'module'
   },
-  plugins: ["react"],
+  plugins: ['react'],
   rules: {
-    indent: ["error", 2, { ignoredNodes: ["ConditionalExpression"] }],
-    semi: [2, "never"],
-    "space-before-function-paren": [
-      "error",
-      { anonymous: "always", named: "never" }
+    indent: ['error', 2, { ignoredNodes: ['ConditionalExpression'] }],
+    semi: [2, 'never'],
+    'space-before-function-paren': [
+      'error',
+      { anonymous: 'always', named: 'never' }
     ],
-    quotes: ["error", "double", { allowTemplateLiterals: true }],
-    "multiline-ternary": "off"
+    quotes: ['error', 'double', { allowTemplateLiterals: true }],
+    'multiline-ternary': 'off'
   }
 }

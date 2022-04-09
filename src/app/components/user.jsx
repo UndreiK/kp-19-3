@@ -1,6 +1,6 @@
-import React from "react"
-import Bookmark from "./bookmark"
-import PropTypes from "prop-types"
+import React from 'react'
+import Bookmark from './bookmark'
+import PropTypes from 'prop-types'
 
 const User = ({
   name,

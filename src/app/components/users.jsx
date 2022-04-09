@@ -1,15 +1,15 @@
-import React, { useState } from "react"
-import { paginate } from "../utils/paginate"
-import Pagination from "./pagination"
-import User from "./user"
-import PropTypes from "prop-types"
+import React, { useState } from 'react'
+import { paginate } from '../utils/paginate'
+import Pagination from './pagination'
+import User from './user'
+import PropTypes from 'prop-types'
 
 const Users = ({ users, ...rest }) => {
   const count = users.length
   const pageSize = 4
   const [currentPage, setCurrentPage] = useState(1)
   const handlePageChange = (pageIndex) => {
-    console.log("page: ", pageIndex)
+    console.log('page: ', pageIndex)
     setCurrentPage(pageIndex)
   }
 

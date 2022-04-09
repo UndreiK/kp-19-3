@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import SearchStatus from "./components/searchStatus"
-import Users from "./components/users"
-import api from "./api"
+import React, { useState } from 'react'
+import SearchStatus from './components/searchStatus'
+import Users from './components/users'
+import api from './api'
 
 function App() {
   const [users, setUsers] = useState(api.users.fetchAll())
