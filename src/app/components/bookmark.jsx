@@ -3,12 +3,8 @@ import PropTypes from "prop-types"
 
 const Bookmark = ({ status, ...rest }) => {
   return (
-    <button onClick={() => rest.onToggleBookmark2(rest.id)}>
-      {status ? (
-        <i className="bi bi-bookmark-fill"></i>
-      ) : (
-        <i className="bi bi-bookmark"></i>
-      )}
+    <button {...rest}>
+      <i className={"bi bi-bookmark" + (status ? "-fill" : "")}></i>
     </button>
   )
 }

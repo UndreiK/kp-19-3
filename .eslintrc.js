@@ -15,7 +15,13 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    indent: ["error", 2, { ignoredNodes: ["ConditionalExpression"] }],
+    indent: [
+      "error",
+      2,
+      {
+        ignoredNodes: ["ConditionalExpression", "TemplateLiteral  *"]
+      }
+    ],
     semi: [2, "never"],
     "space-before-function-paren": [
       "error",

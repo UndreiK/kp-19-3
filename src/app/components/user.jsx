@@ -1,6 +1,7 @@
 import React from "react"
 import Bookmark from "./bookmark"
 import PropTypes from "prop-types"
+import Quality from "./quality"
 
 const User = ({
   name,
@@ -18,22 +19,14 @@ const User = ({
       <td>{name}</td>
       <td>
         {qualities.map((i) => (
-          <span key={i._id} className={`badge m-2 bg-${i.color}`}>
-            {i.name}
-          </span>
+          <Quality {...i} key={i._id} />
         ))}
       </td>
       <td>{profession.name}</td>
       <td>{completedMeetings}</td>
       <td>{rate}/5</td>
       <td>
-        {
-          <Bookmark
-            status={bookmark}
-            id={_id}
-            onToggleBookmark2={onToggleBookmark}
-          />
-        }
+        <Bookmark status={bookmark} onClick={() => onToggleBookmark(_id)} />
       </td>
       <td>
         <button className="btn btn-danger" onClick={() => onDelete(_id)}>
