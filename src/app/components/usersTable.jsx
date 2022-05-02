@@ -20,7 +20,7 @@ const UserTable = ({
     name: {
       path: "name",
       name: "имя",
-      component: (user) => <Link to={`/users/${user.id}`}>{user.name}</Link>
+      component: (user) => <Link to={`/users/${user._id}`}>{user.name}</Link>
     },
     qualities: {
       name: "качества",

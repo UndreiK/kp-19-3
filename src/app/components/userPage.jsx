@@ -20,11 +20,11 @@ const UserPage = ({ userId }) => {
     return (
       <div>
         <h1>{user.name}</h1>
-        <h2>{user.profession.name}</h2>
+        <h2>Профессия: {user.profession.name}</h2>
         <QualitiesList qualities={user.qualities} />
-        <p>{user.completedMeetings}</p>
-        <h3>{user.rate}</h3>
-        <button onClick={handleClick}>all users</button>
+        <p>completedMeetings: {user.completedMeetings}</p>
+        <h3>Rate: {user.rate}</h3>
+        <button onClick={handleClick}>все пользователи</button>
       </div>
     )
   } else {
@@ -35,3 +35,5 @@ const UserPage = ({ userId }) => {
 UserPage.propTypes = {
   userId: PropTypes.string.isRequired
 }
+
+export default UserPage
