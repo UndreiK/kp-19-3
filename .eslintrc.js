@@ -19,7 +19,7 @@ module.exports = {
       "error",
       2,
       {
-        ignoredNodes: ["ConditionalExpression", "TemplateLiteral  *"]
+        ignoredNodes: ["ConditionalExpression", "TemplateLiteral *"]
       }
     ],
     semi: [2, "never"],
