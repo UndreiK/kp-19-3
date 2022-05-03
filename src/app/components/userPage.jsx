@@ -28,7 +28,7 @@ const UserPage = ({ userId }) => {
       </div>
     )
   } else {
-    return <span>Loading</span>
+    return <h1>Loading</h1>
   }
 }
 
