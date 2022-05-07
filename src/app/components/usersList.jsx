@@ -7,6 +7,7 @@ import api from "../api"
 import SearchStatus from "./searchStatus"
 import UserTable from "./usersTable"
 import _ from "lodash"
+import TextField from "./textField"
 
 const UsersList = () => {
   const pageSize = 8
@@ -14,8 +15,8 @@ const UsersList = () => {
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
   const [sortBy, setSortBy] = useState({ path: "name", order: "asc" })
-
   const [users, setUsers] = useState()
+  const [filter, setFilter] = useState("")
 
   useEffect(() => {
     api.users.fetchAll().then((data) => setUsers(data))
@@ -57,7 +58,11 @@ const UsersList = () => {
   }
 
   if (users) {
-    const filteredUsers = selectedProf
+    const filteredUsers = filter
+      ? users.filter(
+          (user) => user.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
+        )
+      : selectedProf
       ? users.filter(
           (user) =>
             JSON.stringify(user.profession) === JSON.stringify(selectedProf)
@@ -65,13 +70,16 @@ const UsersList = () => {
       : users
 
     const count = filteredUsers.length
-
     const sortedUsers = _.orderBy(filteredUsers, [sortBy.path], [sortBy.order])
-
     const userCrop = paginate(sortedUsers, currentPage, pageSize)
 
     const clearFilter = () => {
       setSelectedProf()
+    }
+
+    const changeHandler = (event) => {
+      setSelectedProf(undefined)
+      setFilter(event.target.value)
     }
 
     // const getBadgeClasses = (item) => {
@@ -93,8 +101,10 @@ const UsersList = () => {
             </button>
           </div>
         )}
+
         <div className="d-flex flex-column">
           <SearchStatus length={count} />
+          <TextField onChange={changeHandler} />
           {count > 0 && (
             <UserTable
               users={userCrop}
