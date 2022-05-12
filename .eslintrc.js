@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    semi: [2, "never"],
     indent: [
       "error",
       2,
@@ -22,12 +23,11 @@ module.exports = {
         ignoredNodes: ["ConditionalExpression", "TemplateLiteral *"]
       }
     ],
-    semi: [2, "never"],
+    "multiline-ternary": "off",
     "space-before-function-paren": [
       "error",
       { anonymous: "always", named: "never" }
     ],
-    quotes: ["error", "double", { allowTemplateLiterals: true }],
-    "multiline-ternary": "off"
+    quotes: ["error", "double", { allowTemplateLiterals: true }]
   }
 }
