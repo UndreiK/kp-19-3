@@ -9,7 +9,7 @@ export const useQuality = () => {
   return useContext(QualityContext)
 }
 
-const QualityProvider = ({ children }) => {
+export const QualityProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(true)
   const [qualities, setQualities] = useState([])
   const [error, setError] = useState(null)
