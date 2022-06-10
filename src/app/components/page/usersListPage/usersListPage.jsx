@@ -7,6 +7,7 @@ import api from "../../../api"
 import SearchStatus from "../../ui/searchStatus"
 import UserTable from "../../ui/usersTable"
 import _ from "lodash"
+import { useUser } from "../../../hooks/useUsers"
 
 const UsersListPage = () => {
   const pageSize = 8
@@ -14,15 +15,14 @@ const UsersListPage = () => {
   const [professions, setProfessions] = useState()
   const [selectedProf, setSelectedProf] = useState()
   const [sortBy, setSortBy] = useState({ path: "name", order: "asc" })
-  const [users, setUsers] = useState()
   const [filter, setFilter] = useState("")
 
-  useEffect(() => {
-    api.users.fetchAll().then((data) => setUsers(data))
-  }, [])
+  const { users } = useUser()
+  console.log(users)
 
   const handleDelete = (userId) => {
-    setUsers(users.filter((user) => user._id !== userId))
+    // setUsers(users.filter((user) => user._id !== userId))
+    console.log(userId)
   }
 
   const handleToggleBookmark = (id) => {
@@ -33,7 +33,8 @@ const UsersListPage = () => {
       }
       return user
     })
-    setUsers(bkUsers)
+    // setUsers(bkUsers)
+    console.log(bkUsers)
   }
 
   useEffect(() => {
