@@ -2,7 +2,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import config from "../config.json"
 
-axios.defaults.baseURL = config.apiEndPoint
+axios.defaults.baseURL = config.apiEndpoint
 
 axios.interceptors.response.use(
   (res) => res,
