@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
   }
 
   async function logIn({ email, password, ...rest }) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`
 
     try {
       const { data } = await httpAuth.post(url, {
