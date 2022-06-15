@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     }
   }
 
-  async function logIn({ email, password, ...rest }) {
+  async function logIn({ email, password }) {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`
 
     try {
@@ -50,17 +50,15 @@ const AuthProvider = ({ children }) => {
         returnSecureToken: true
       })
       setTokens(data)
-      await createUser({ _id: data.localId, email, ...rest })
       console.log(data)
     } catch (error) {
       errorCatcher(error)
       const { code, message } = error.response.data.error
       if (code === 400) {
-        if (message !== "EMAIL_EXISTS") {
-          const errorObject = {
-            email: "пользователь с таким email не существует"
-          }
-          throw errorObject
+        if (message === "INVALID_PASSWORD") {
+          throw new Error("Email или пароль введены не верно")
+        } else {
+          throw new Error("слишком много попыток входа")
         }
       }
     }
