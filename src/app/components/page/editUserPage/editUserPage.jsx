@@ -7,6 +7,7 @@ import { validator } from "../../../utils/validator"
 import MultiSelectField from "../../common/form/multiSelectField"
 import { useParams, useHistory } from "react-router-dom"
 import BackHistoryButton from "../../common/backButton"
+// import { useAuth } from "../../../hooks/useAuth"
 
 const EditUserPage = () => {
   const [errors, setErrors] = useState({})
@@ -20,7 +21,7 @@ const EditUserPage = () => {
   })
   const [professions, setProfessions] = useState([])
   const [qualities, setQualities] = useState([])
-
+  // const { currentUser } = useAuth()
   const { userId } = useParams()
   const history = useHistory()
 
